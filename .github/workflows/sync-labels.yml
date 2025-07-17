@@ -24,7 +24,7 @@ jobs:
 
       - name: Sync labels to multiple repositories
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_LABEL_SYNC }}
         run: |
           IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repositories }}"
           for REPO in "${REPOS[@]}"; do
