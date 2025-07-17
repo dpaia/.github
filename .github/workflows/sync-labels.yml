@@ -6,7 +6,7 @@ on:
       repositories:
         description: 'Comma-separated list of target repositories (repo1,repo2)'
         required: true
-        default: ''
+        default: '.github,ee-swe-java-spring-benchmark,spring-petclinic-rest,feature-service,piggymetrics'
 
 jobs:
   sync-labels:
