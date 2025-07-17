@@ -38,7 +38,7 @@ This policy defines the mandatory procedure for submitting new benchmarking task
    FAIL_TO_PASS: <Failed tests, now passing after the patch>
    PASS_TO_PASS: <Tests that already passed and still pass>
    ```
-   *`FAIL_TO_PASS`* and *`PASS_TO_PASS`* suites are automatically executed for every pull request.*
+   **`FAIL_TO_PASS`** and **`PASS_TO_PASS`** suites are automatically executed for every pull request.
 5. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
     - **Title**: `<task‑name>`
     - **Label**: `Review`
