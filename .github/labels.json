@@ -1,31 +1,31 @@
 [
   {
-    "name": "review",
+    "name": "Review",
     "color": "A619A6",
     "description": ""
   },
   {
-    "name": "invalid",
+    "name": "Invalid",
     "color": "e4e669",
     "description": "This doesn't seem right"
   },
   {
-    "name": "wontfix",
+    "name": "Wontfix",
     "color": "ffffff",
     "description": "This will not be worked on"
   },
   {
-    "name": "bug",
+    "name": "Bugfix",
     "color": "d73a4a",
     "description": "Something is not working"
   },
   {
-    "name": "documentation",
+    "name": "Documentation",
     "color": "0075ca",
     "description": "Improvements or additions to documentation"
   },
   {
-    "name": "data",
+    "name": "Data",
     "color": "CA905E",
     "description": ""
   },
@@ -35,22 +35,22 @@
     "description": ""
   },
   {
-    "name": "tests",
+    "name": "Tests",
     "color": "CD32B5",
     "description": ""
   },
   {
-    "name": "validation",
+    "name": "Validation",
     "color": "05E9A7",
     "description": ""
   },
   {
-    "name": "logs",
+    "name": "Logs",
     "color": "940CA5",
     "description": ""
   },
   {
-    "name": "events",
+    "name": "Events",
     "color": "cad54b",
     "description": ""
   },
@@ -60,13 +60,28 @@
     "description": ""
   },
   {
-    "name": "security",
+    "name": "Security",
     "color": "5A372E",
     "description": ""
   },
   {
     "name": "API",
     "color": "A60BE4",
+    "description": ""
+  },
+  {
+    "name": "API",
+    "color": "A60BE4",
+    "description": ""
+  },
+  {
+    "name": "Controller",
+    "color": "5ce015",
+    "description": ""
+  },
+  {
+    "name": "Endpoints",
+    "color": "5d1f9d",
     "description": ""
   }
 ]
