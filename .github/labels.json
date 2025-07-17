@@ -1,5 +1,10 @@
 [
   {
+    "name": "Epic",
+    "color": "e3502f",
+    "description": ""
+  },
+  {
     "name": "Review",
     "color": "A619A6",
     "description": ""
@@ -87,6 +92,36 @@
   {
     "name": "Cache",
     "color": "ee6cb7",
+    "description": ""
+  },
+  {
+    "name": "Flyway",
+    "color": "fa3d0a",
+    "description": ""
+  },
+  {
+    "name": "Liquibase",
+    "color": "930383",
+    "description": ""
+  },
+  {
+    "name": "Exceptions",
+    "color": "829ad3",
+    "description": ""
+  },
+  {
+    "name": "SQL",
+    "color": "1d76db",
+    "description": ""
+  },
+  {
+    "name": "JPA",
+    "color": "033fdb",
+    "description": ""
+  },
+  {
+    "name": "JPQL",
+    "color": "c42f02",
     "description": ""
   }
 ]
