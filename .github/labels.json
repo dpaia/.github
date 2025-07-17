@@ -1,0 +1,53 @@
+[
+  {
+    "name": "review",
+    "color": "A619A6",
+    "description": ""
+  },
+  {
+    "name": "invalid",
+    "color": "e4e669",
+    "description": "This doesn't seem right"
+  },
+  {
+    "name": "wontfix",
+    "color": "ffffff",
+    "description": "This will not be worked on"
+  },
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Something is not working"
+  },
+  {
+    "name": "documentation",
+    "color": "0075ca",
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "name": "data",
+    "color": "CA905E",
+    "description": ""
+  },
+  {
+    "name": "REST",
+    "color": "A619A6",
+    "description": ""
+  },
+  {
+    "name": "tests",
+    "color": "CD32B5",
+    "description": ""
+  },
+  {
+    "name": "validation",
+    "color": "05E9A7",
+    "description": ""
+  },
+  {
+    "name": "logs",
+    "color": "940CA5",
+    "description": ""
+  }
+  
+]
