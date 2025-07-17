@@ -27,8 +27,8 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 ## 3. Submission Workflow
 
 1. **Fork or branch** the repository.
-2. **Add** the task under `tasks/<task‑name>/`, including source code and tests.
-3. **Commit** using the following message structure (replace angle‑bracketed placeholders):
+3. **Implement** the task including source code and tests.
+4. **Commit** using the following message structure (replace angle‑bracketed placeholders):
    ```
    <Task name> #<task number>
 
@@ -38,7 +38,7 @@ This policy defines the mandatory procedure for submitting new benchmarking task
    PASS_TO_PASS: <Tests that already passed and still pass>
    ```
    **`FAIL_TO_PASS`** and **`PASS_TO_PASS`** suites are automatically executed for every pull request.
-4. **Open** a PR against `main`:
+5. **Open** a PR against `main`:
    - **Title**: `<task‑name>`
    - **Label**: `Review`
    - **Reviewers**: `Review`
@@ -50,12 +50,12 @@ This policy defines the mandatory procedure for submitting new benchmarking task
      PASS_TO_PASS: <Tests that already passed and still pass>
      ```
      *The same test suites declared here will be executed by CI to verify the patch.*
-5. **Verify CI** – All tests must pass in GitHub Actions.
-6. **Address review** – Amend the PR until maintainers approve.
-7. **Final review** – A reviewer evaluates the implementation, problem statement, and test coverage for policy compliance.
-8. **Label removal & closure** – Upon successful review, the `Review` label is removed and the pull request is closed.
-9. **Dataset generation** – The merged commit converted into a dataset entry.
-10. **Issue housekeeping** – Any linked issues are closed.
+6. **Verify CI** – All tests must pass in GitHub Actions.
+7. **Address review** – Amend the PR until maintainers approve.
+8. **Final review** – A reviewer evaluates the implementation, problem statement, and test coverage for policy compliance.
+9. **Label removal & closure** – Upon successful review, the `Review` label is removed and the pull request is closed.
+10. **Dataset generation** – The merged commit converted into a dataset entry.
+11. **Issue housekeeping** – Any linked issues are closed.
 
 ---
 
