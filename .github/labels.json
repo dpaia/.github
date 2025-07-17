@@ -48,6 +48,10 @@
     "name": "logs",
     "color": "940CA5",
     "description": ""
+  },
+  {
+    "name": "events",
+    "color": "cad54b",
+    "description": ""
   }
-  
 ]
