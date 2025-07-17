@@ -1,0 +1,29 @@
+name: Sync Labels
+
+on:
+  workflow_dispatch: # allows manual triggering
+
+jobs:
+  sync-labels:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install github-label-sync
+        run: npm install -g github-label-sync
+
+      - name: Sync labels to this repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          github-label-sync \
+            --access-token $GITHUB_TOKEN \
+            --labels .github/labels.json \
+            ${{ github.repository }}
