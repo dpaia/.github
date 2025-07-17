@@ -26,9 +26,10 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 
 ## 3. Issue Submission Workflow
 
-1. **Fork or branch** the repository.
-2. **Implement** the issue including source code and tests.
-3. **Commit** using the following message structure (replace angle‑bracketed placeholders):
+1. **Verify issue** to be implemented in the repository. If issue can not be implemnted then add a reason as a comment, add `Wontfix` label and reassign task to task creator.
+2. **Fork or branch** the repository.
+3. **Implement** the issue including source code and tests.
+4. **Commit** using the following message structure (replace angle‑bracketed placeholders):
    ```
    <Task name> #<issue number>
 
@@ -38,7 +39,7 @@ This policy defines the mandatory procedure for submitting new benchmarking task
    PASS_TO_PASS: <Tests that already passed and still pass>
    ```
    *`FAIL_TO_PASS`* and *`PASS_TO_PASS`* suites are automatically executed for every pull request.*
-4. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
+5. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
     - **Title**: `<task‑name>`
     - **Label**: `Review`
     - **Reviewers**: `Review`
@@ -50,8 +51,8 @@ This policy defines the mandatory procedure for submitting new benchmarking task
       PASS_TO_PASS: <Tests that already passed and still pass>
       ```
       *The same test suites declared here will be executed by CI to verify the patch.*
-5. **Verify CI** – All tests must pass in GitHub Actions.
-6. **Address review** – Amend the PR until Review team approve.
+6. **Verify CI** – All tests must pass in GitHub Actions.
+7. **Address review** – Amend the PR until Review team approve.
 
 ---
 
