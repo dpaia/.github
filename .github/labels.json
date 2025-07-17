@@ -53,5 +53,15 @@
     "name": "events",
     "color": "cad54b",
     "description": ""
+  },
+  {
+    "name": "DTO",
+    "color": "CD3228",
+    "description": ""
+  },
+  {
+    "name": "security",
+    "color": "5A372E",
+    "description": ""
   }
 ]
