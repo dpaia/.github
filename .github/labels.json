@@ -63,5 +63,10 @@
     "name": "security",
     "color": "5A372E",
     "description": ""
+  },
+  {
+    "name": "API",
+    "color": "A60BE4",
+    "description": ""
   }
 ]
