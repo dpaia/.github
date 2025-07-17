@@ -75,10 +75,9 @@ Executed **after** the Review team has approved and labeled the pull request.
 
 1. **Create a task‑instance JSON** describing the new benchmark case.
 2. **Append the result JSON** to the appropriate dataset file.
-3. **Assign the project** `Enterprise SWE Spring Java Benchmark` to all related issues in the pull request.
-4. **Populate the `Dataset` field** in the PR description with the filename(s) of the updated dataset.
-5. **Close the pull request** once dataset updates are committed to `main`.
-6. **Close associated issues** to complete the tracking loop.
+3. **Populate the `Dataset` field** in the PR description with the filename(s) of the updated dataset.
+4. **Close the pull request** once dataset updates are committed to `main`.
+5. **Close associated issues** to complete the tracking loop.
 
 ---
 
