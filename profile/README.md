@@ -41,6 +41,7 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 4. **Open** a PR against `main`:
    - **Title**: `<task‑name>`
    - **Label**: `Review`
+   - **Reviewers**: `Review`
    - **Body** *(must follow the template below)*:
      ```
      <Task description or additional context>
