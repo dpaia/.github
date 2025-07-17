@@ -24,42 +24,106 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 
 ---
 
-## 3. Submission Workflow
+## 3. Issue Submission Workflow
 
 1. **Fork or branch** the repository.
-3. **Implement** the task including source code and tests.
-4. **Commit** using the following message structure (replace angle‑bracketed placeholders):
+2. **Implement** the issue including source code and tests.
+3. **Commit** using the following message structure (replace angle‑bracketed placeholders):
    ```
-   <Task name> #<task number>
+   <Task name> #<issue number>
 
    <Task description>
 
    FAIL_TO_PASS: <Failed tests, now passing after the patch>
    PASS_TO_PASS: <Tests that already passed and still pass>
    ```
-   **`FAIL_TO_PASS`** and **`PASS_TO_PASS`** suites are automatically executed for every pull request.
-5. **Open** a PR against `main`:
-   - **Title**: `<task‑name>`
-   - **Label**: `Review`
-   - **Reviewers**: `Review`
-   - **Body** *(must follow the template below)*:
-     ```
-     <Task description or additional context>
-
-     FAIL_TO_PASS: <Failed tests, now passing after the patch>
-     PASS_TO_PASS: <Tests that already passed and still pass>
-     ```
-     *The same test suites declared here will be executed by CI to verify the patch.*
-6. **Verify CI** – All tests must pass in GitHub Actions.
-7. **Address review** – Amend the PR until maintainers approve.
-8. **Final review** – A reviewer evaluates the implementation, problem statement, and test coverage for policy compliance.
-9. **Label removal & closure** – Upon successful review, the `Review` label is removed and the pull request is closed.
-10. **Dataset generation** – The merged commit converted into a dataset entry.
-11. **Issue housekeeping** – Any linked issues are closed.
+   *`FAIL_TO_PASS`* and *`PASS_TO_PASS`* suites are automatically executed for every pull request.*
+4. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
+    - **Title**: `<task‑name>`
+    - **Label**: `Review`
+    - **Reviewers**: `Review`
+    - **Body** *(must follow the template below)*:
+      ```
+      <Task description or additional context>
+ 
+      FAIL_TO_PASS: <Failed tests, now passing after the patch>
+      PASS_TO_PASS: <Tests that already passed and still pass>
+      ```
+      *The same test suites declared here will be executed by CI to verify the patch.*
+5. **Verify CI** – All tests must pass in GitHub Actions.
+6. **Address review** – Amend the PR until Review team approve.
 
 ---
 
-## 4. Acceptance Criteria
+## 4. Review Workflow
+
+The following checklist is executed **after** the contributor has completed the Submission Workflow and the PR is ready for human review.
+
+1. **Open the pull request** assigned to the Review team.
+2. **Review implementation details** – Ensure code quality, style, and architectural consistency.
+3. **Examine the `FAIL_TO_PASS` and `PASS_TO_PASS` test lists** – Confirm that proposed tests do *not* depend on undocumented implementation details.
+4. **Validate commit(s)** – Each commit must address *one* issue, carry the correct message structure, and be linked to its corresponding issue.
+5. **Verify compliance with [Acceptance Criteria](https://github.com/jetbrains-eval-lab#6-acceptance-criteria)**.
+6. **Apply the `Verified` label** when all checks succeed.
+7. **Approve the pull request** – ***Do not*** merge the PR; hand‑off to the Dataset team instead.
+
+---
+
+## 5. Dataset Generation Workflow
+
+Executed **after** the Review team has approved and labeled the pull request.
+
+1. **Create a task‑instance JSON** describing the new benchmark case.
+2. **Append the result JSON** to the appropriate dataset file.
+3. **Assign the project** `Enterprise SWE Spring Java Benchmark` to all related issues in the pull request.
+4. **Populate the `Dataset` field** in the PR description with the filename(s) of the updated dataset.
+5. **Close the pull request** once dataset updates are committed to `main`.
+6. **Close associated issues** to complete the tracking loop.
+
+---
+
+### Dataset Format
+
+Each dataset is a JSON file with the following structure:
+
+```json
+{
+    "instance_id": "owner__repo-pr_number",
+    "repo": "owner/repo",
+    "base_commit": "commit_hash",
+    "problem_statement": "Issue description...",
+    "version": "Repository package version",
+    "patch": "Gold solution patch (don't look at this if you're trying to solve the problem)",
+    "test_patch": "Test patch",
+    "created_at": "Date of creation",
+    "is_maven": "Is Maven project (true or false)",
+    "FAIL_TO_PASS": "Failed tests, but passed after applying the patch or fix",
+    "PASS_TO_PASS": "Pass test cases. Shows stability and correctness — the patch did not break existing functionality and may include improvements or refactoring"
+}
+```
+
+Additional fields may include code embeddings, task metadata, or contextual annotations.
+
+Example:
+```json
+[
+  {
+    "instance_id": "example__user__java__project__git-123abc",
+    "repo": "example-user/java-enterprise-project.git",
+    "base_commit": "abcdef1234567890abcdef1234567890abcdef12",
+    "patch": "--- a/src/main/java/com/example/MyService.java\n+++ b/src/main/java/com/example/MyService.java\n@@ -1,4 +1,6 @@\n public class MyService {\n+    private final Logger logger = LoggerFactory.getLogger(MyService.class);\n+\n     public void doWork() {\n         // TODO: implement\n     }\n }",
+    "test_patch": "--- a/src/test/java/com/example/MyServiceTest.java\n+++ b/src/test/java/com/example/MyServiceTest.java\n@@ -10,6 +10,10 @@\n     @Test\n     public void testDoWork() {\n         // should log an event\n+        assertDoesNotThrow(() -> myService.doWork());\n     }\n }",
+    "problem_statement": "Add logging support to MyService and ensure no exceptions are thrown during doWork() execution.",
+    "FAIL_TO_PASS": ["src:com.example.MyServiceTest"],
+    "PASS_TO_PASS": [],
+    "created_at": "2025-06-25T20:30:00+02:00",
+    "version": "0.1",
+    "is_maven": "true"
+  }
+]
+```
+
+## 6. Acceptance Criteria
 
 A submission **shall be accepted** when **all** of the following conditions hold:
 
@@ -71,12 +135,12 @@ A submission **shall be accepted** when **all** of the following conditions hold
 | 4 | All relevant edge cases and error scenarios are covered by tests.                                                                                                              |
 | 5 | The commit message follows the prescribed structure and the description portion is identical, verbatim, to the README description.                                             |
 | 6 | The pull request bears the label `Review`, adheres to the PR‑body template (including `FAIL_TO_PASS` and `PASS_TO_PASS` sections), and all CI pipelines complete successfully. |
-| 7 | Steps 7–10 of the Submission Workflow have been completed.                                                                                                                     |
+| 7 | Review Workflow steps 1–7 and Dataset Generation Workflow steps 1–6 have been completed.                                                                                       |
 | 8 | Any deviations from these policies are duly justified in the PR description and accepted by maintainers.                                                                       |
 
 ---
 
-## 5. Best‑Practice Recommendations
+## 7. Best‑Practice Recommendations
 
 - Decompose complex scenarios into multiple focused tasks.
 - Use parameterised tests to minimise duplication.

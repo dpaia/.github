@@ -15,6 +15,11 @@
     "description": "This will not be worked on"
   },
   {
+    "name": "Verified",
+    "color": "0E8A16",
+    "description": ""
+  },
+  {
     "name": "Bugfix",
     "color": "d73a4a",
     "description": "Something is not working"
@@ -62,11 +67,6 @@
   {
     "name": "Security",
     "color": "5A372E",
-    "description": ""
-  },
-  {
-    "name": "API",
-    "color": "A60BE4",
     "description": ""
   },
   {
