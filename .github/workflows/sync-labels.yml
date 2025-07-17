@@ -1,17 +1,24 @@
-name: Sync Labels
+name: Sync Labels to Other Repositories
 
 on:
-  workflow_dispatch: # allows manual triggering
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'Comma-separated list of target repositories (org/repo)'
+        required: true
+        default: 'jetbrains-eval-lab/repo1'
 
 jobs:
   sync-labels:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        repo: ${{ fromJson(inputs.repositories) }}
     steps:
-      - name: Checkout repository
+      - name: Checkout labels repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -19,11 +26,12 @@ jobs:
       - name: Install github-label-sync
         run: npm install -g github-label-sync
 
-      - name: Sync labels to this repository
+      - name: Sync labels to target repository
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_LABEL_SYNC }}
         run: |
+          echo "Syncing labels to ${{ matrix.repo }}"
           github-label-sync \
-            --access-token $GITHUB_TOKEN \
+            --access-token "$GITHUB_TOKEN" \
             --labels .github/labels.json \
-            ${{ github.repository }}
+            "${{ matrix.repo }}"
