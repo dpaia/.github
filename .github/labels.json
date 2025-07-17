@@ -83,5 +83,10 @@
     "name": "Endpoints",
     "color": "5d1f9d",
     "description": ""
+  },
+  {
+    "name": "Cache",
+    "color": "ee6cb7",
+    "description": ""
   }
 ]
