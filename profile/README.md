@@ -24,7 +24,34 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 
 ---
 
-## 3. Issue Submission Workflow
+## 3. Issue Creation Workflow
+
+To create a new issue suitable for inclusion in the benchmark:
+
+1. **Describe the Problem Clearly**\
+   The issue must include a self-contained problem statement that is understandable without requiring external links or explanations. It should define:
+
+   - **The intent** — What functionality or behavior is being introduced or fixed?
+   - **Constraints** — Any assumptions, limitations, or required tools/APIs.
+
+2. **Specify Tags**\
+   Add the following labels to every issue:
+
+   - Language-specific or technology labels (e.g., `Java`, `Spring`, `Maven`) to support categorization.
+   - `Good First Issue` or `Advanced`, depending on complexity.
+   - Optional: `Bug`, `Feature`, or `Refactor` to clarify nature.
+
+3. **Prepare for Testing**\
+   Ensure the issue can be implemented in a way that conforms to [Section 2. Tests](#2-tests):
+
+   - Must support creation of a **black-box test suite** that fails before and passes after the fix or feature.
+   - Must not rely on flaky or external system behavior.
+   - Should define expected behavior in terms that can be verified through public interfaces.
+
+4. **Enable Traceability**\
+   Use a descriptive issue title and include any relevant file paths or APIs. This helps maintain clear links between the issue, its implementation, and test verification.
+
+## 4. Issue Submission Workflow
 
 1. **Verify issue** to be implemented in the repository. If issue can not be implemnted then add a reason as a comment, add `Wontfix` label and reassign task to task creator.
 2. **Fork or branch** the repository.
@@ -60,7 +87,7 @@ This policy defines the mandatory procedure for submitting new benchmarking task
 
 ---
 
-## 4. Review Workflow
+## 5. Review Workflow
 
 The following checklist is executed **after** the contributor has completed the Submission Workflow and the PR is ready for human review.
 
@@ -68,66 +95,24 @@ The following checklist is executed **after** the contributor has completed the 
 2. **Review implementation details** – Ensure code quality, style, and architectural consistency.
 3. **Examine the `FAIL_TO_PASS` and `PASS_TO_PASS` test lists** – Confirm that proposed tests do *not* depend on undocumented implementation details.
 4. **Validate commit(s)** – Each commit must address *one* issue, carry the correct message structure, and be linked to its corresponding issue.
-5. **Verify compliance with [Acceptance Criteria](https://github.com/jetbrains-eval-lab#6-acceptance-criteria)**.
+5. **Verify compliance with [Acceptance Criteria](https://github.com/jetbrains-eval-lab#7-acceptance-criteria)**.
 6. **Apply the `Verified` label** when all checks succeed.
 7. **Approve the pull request** – ***Do not*** merge the PR; hand‑off to the Dataset team instead.
 
 ---
 
-## 5. Dataset Generation Workflow
+## 6. Dataset Generation Workflow
 
 Executed **after** the Review team has approved and labeled the pull request.
 
 1. **Create a task‑instance JSON** describing the new benchmark case.
-2. **Append the result JSON** to the appropriate dataset file.
-3. **Populate the `Dataset` field** in the PR description with the filename(s) of the updated dataset.
-4. **Close the pull request** once dataset updates are committed to `main`.
-5. **Close associated issues** to complete the tracking loop.
+2. **Verify** created dataset item
+3. **Close the pull request** once dataset updates are committed to `main`.
+4. **Close associated issues** to complete the tracking loop.
 
 ---
 
-### Dataset Format
-
-Each dataset is a JSON file with the following structure:
-
-```json
-{
-    "instance_id": "owner__repo-pr_number",
-    "repo": "owner/repo",
-    "base_commit": "commit_hash",
-    "problem_statement": "Issue description...",
-    "version": "Repository package version",
-    "patch": "Gold solution patch (don't look at this if you're trying to solve the problem)",
-    "test_patch": "Test patch",
-    "created_at": "Date of creation",
-    "is_maven": "Is Maven project (true or false)",
-    "FAIL_TO_PASS": "Failed tests, but passed after applying the patch or fix",
-    "PASS_TO_PASS": "Pass test cases. Shows stability and correctness — the patch did not break existing functionality and may include improvements or refactoring"
-}
-```
-
-Additional fields may include code embeddings, task metadata, or contextual annotations.
-
-Example:
-```json
-[
-  {
-    "instance_id": "example__user__java__project__git-123abc",
-    "repo": "example-user/java-enterprise-project.git",
-    "base_commit": "abcdef1234567890abcdef1234567890abcdef12",
-    "patch": "--- a/src/main/java/com/example/MyService.java\n+++ b/src/main/java/com/example/MyService.java\n@@ -1,4 +1,6 @@\n public class MyService {\n+    private final Logger logger = LoggerFactory.getLogger(MyService.class);\n+\n     public void doWork() {\n         // TODO: implement\n     }\n }",
-    "test_patch": "--- a/src/test/java/com/example/MyServiceTest.java\n+++ b/src/test/java/com/example/MyServiceTest.java\n@@ -10,6 +10,10 @@\n     @Test\n     public void testDoWork() {\n         // should log an event\n+        assertDoesNotThrow(() -> myService.doWork());\n     }\n }",
-    "problem_statement": "Add logging support to MyService and ensure no exceptions are thrown during doWork() execution.",
-    "FAIL_TO_PASS": ["src:com.example.MyServiceTest"],
-    "PASS_TO_PASS": [],
-    "created_at": "2025-06-25T20:30:00+02:00",
-    "version": "0.1",
-    "is_maven": "true"
-  }
-]
-```
-
-## 6. Acceptance Criteria
+## 7. Acceptance Criteria
 
 A submission **shall be accepted** when **all** of the following conditions hold:
 
@@ -144,7 +129,7 @@ A submission **shall be accepted** when **all** of the following conditions hold
 
 ---
 
-## 7. Best‑Practice Recommendations
+## 8. Best‑Practice Recommendations
 
 - Decompose complex scenarios into multiple focused tasks.
 - Use parameterised tests to minimise duplication.
