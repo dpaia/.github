@@ -52,7 +52,11 @@ This policy defines the mandatory procedure for submitting new benchmarking task
       ```
       *The same test suites declared here will be executed by CI to verify the patch.*
 6. **Verify CI** – All tests must pass in GitHub Actions.
-7. **Address review** – Amend the PR until Review team approve.
+7. **Address review** – Amend the PR until a Review team approves.
+
+   - FAIL_TO_PASS and PASS_TO_PASS can be added in issue comments to be included in the dataset.
+   - Related commits can be added to the issue by including a comment with format: `Related commit:<commit hash>`
+   - Dataset problem statement will be extracted from the issue description.
 
 ---
 
