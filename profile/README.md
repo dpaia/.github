@@ -61,25 +61,22 @@ To create a new issue suitable for inclusion in the benchmark:
    <Task name> #<issue number>
 
    <Task description>
-
+   ```
+5. **Add** FAIL_TO_PASS and PASS_TO_PASS to the issue comment:
+   ```
    FAIL_TO_PASS: <Failed tests, now passing after the patch>
    PASS_TO_PASS: <Tests that already passed and still pass>
    ```
-   **`FAIL_TO_PASS`** and **`PASS_TO_PASS`** suites are automatically executed for every pull request.
-5. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
+6. **Open** a PR against `main` or a feature branch. The PR **must** include the following information:
     - **Title**: `<task‑name>`
     - **Label**: `Review`
     - **Reviewers**: `Review`
     - **Body** *(must follow the template below)*:
       ```
       <Task description or additional context>
- 
-      FAIL_TO_PASS: <Failed tests, now passing after the patch>
-      PASS_TO_PASS: <Tests that already passed and still pass>
       ```
-      *The same test suites declared here will be executed by CI to verify the patch.*
-6. **Verify CI** – All tests must pass in GitHub Actions.
-7. **Address review** – Amend the PR until a Review team approves.
+7**Verify CI** – All tests must pass in GitHub Actions.
+8**Address review** – Amend the PR until a Review team approves.
 
    - FAIL_TO_PASS and PASS_TO_PASS can be added in issue comments to be included in the dataset.
    - Related commits can be added to the issue by including a comment with format: `Related commit:<commit hash>`
