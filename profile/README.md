@@ -75,8 +75,8 @@ To create a new issue suitable for inclusion in the benchmark:
       ```
       <Task description or additional context>
       ```
-7**Verify CI** – All tests must pass in GitHub Actions.
-8**Address review** – Amend the PR until a Review team approves.
+7. **Verify CI** – All tests must pass in GitHub Actions.
+8. **Address review** – Amend the PR until a Review team approves.
 
    - FAIL_TO_PASS and PASS_TO_PASS can be added in issue comments to be included in the dataset.
    - Related commits can be added to the issue by including a comment with format: `Related commit:<commit hash>`
