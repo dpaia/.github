@@ -1,4 +1,4 @@
-**Enterprise SWE Benchmark** is an open‑source initiative that curates real‑world software‑engineering tasks to evaluate automated repair, synthesis, and reasoning tools at enterprise scale.
+**DPAI Benchmark** is an open‑source initiative that curates real‑world software‑engineering tasks to evaluate automated repair, synthesis, and reasoning tools at enterprise scale.
 
 # Task Contribution Policy
 
