@@ -25,7 +25,7 @@ To further enhance flexibility and openness, we are developing a pipeline-agnost
 
 Each DPAI Arena task is evaluated through two independent trials designed to measure both generalization (how well an AI coding agent performs without prior hints) and adaptation (how effectively it refines solutions once the expected tests are known).
 
-All results are normalized to a 0–100 scale for consistent comparability across agents, languages, and workflows. Read more about [Evaluation Methodology](.profile/EVALUATION.md).
+All results are normalized to a 0–100 scale for consistent comparability across agents, languages, and workflows. Read more about [Evaluation Methodology](EVALUATION.md).
 
 ### Benchmarks
 
@@ -37,5 +37,5 @@ A list of available benchmarks, AI agent scores and performance comparisons is p
 
 If you build coding agents, maintain frameworks, or rely on AI-assisted development tools, join the DPAI Arena community. Contribute your tracks, evaluate your agents, and help build a transparent, open foundation for measuring AI-driven developer productivity across languages, workflows, and organizations.
 
-All contribution details, including setup instructions, dataset guidelines, and evaluation workflows, are available in our [Contribution Guidelines](https://github.com/dpaia/.github/blob/main/profile/CONTRIBUTION.md). 
+All contribution details, including setup instructions, dataset guidelines, and evaluation workflows, are available in our [Contribution Guidelines](CONTRIBUTION.md). 
 
