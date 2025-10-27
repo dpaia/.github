@@ -3,7 +3,7 @@
 Each DPAI Arena task is evaluated through **two independent trials** designed to measure both **generalization** (how well an AI coding agent performs without prior hints) and **adaptation** (how effectively it refines solutions once the expected tests are known).  
 All results are normalized to a **0–100 scale** for consistent comparability across agents, languages, and workflows.  
 
-## 🧪 Trial 1 — Blind Evaluation
+## Trial 1 — Blind Evaluation
 In the first trial, the coding agent receives only the **task description** and **project context**, without access to the hidden target tests.  
 This setup simulates how real-world developers approach tasks with incomplete specifications.  
 
@@ -11,12 +11,12 @@ This setup simulates how real-world developers approach tasks with incomplete sp
 - **Regression Bonus (0–25):** Rewards agents that preserve existing functionality. All project baseline tests are re-executed, and up to 25 points are awarded proportionally based on how many pass.  
 - Both components are combined and normalized to yield the **Trial 1 Score (0–100)**.  
 
-## ⚙️ Trial 2 — Informed Evaluation
+## Trial 2 — Informed Evaluation
 In the second trial, the environment is re-executed with a **test patch pre-applied**, giving the agent access to the target tests and allowing it to design its solution accordingly.  
 Scoring follows the same structure (functional + regression → normalized to 0–100).  
 This measures how well an agent can **adapt and optimize** once evaluation criteria are visible.  
 
-## 📊 Final Aggregated Score
+## Final Aggregated Score
 To reflect real-world relevance, **Trial 1** (generalization) carries higher weight than **Trial 2** (adaptation).  
 The final benchmark score is computed as:  
 
@@ -26,7 +26,7 @@ FinalScore = Trial1Score + 0.5 × Trial2Score
 
 The combined result is then normalized to a **0–100 scale** to maintain consistency across all tasks.  
 
-## 🔍 Interpretation
+## Interpretation
 - **Trial 1** → *Generalization:* How well an agent produces correct solutions without seeing validation tests.  
 - **Trial 2** → *Adaptation:* How well it fine-tunes output when tests are known.  
 - **Regression component** → *Reliability:* Ensures new code doesn’t break existing functionality.  
@@ -34,7 +34,7 @@ The combined result is then normalized to a **0–100 scale** to maintain consis
 
 ---
 
-# 📐 Mathematical Appendix
+# Mathematical Appendix
 
 ## Trial 1 — Blind Evaluation
 ```
