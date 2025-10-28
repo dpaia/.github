@@ -4,7 +4,7 @@ This is the home of [Developer Productivity AI Arena](https://dpaia.dev/) (DPAIA
 
 DPAI Arena brings measurable productivity into the world of AI-assisted software development. AI tool providers can benchmark and refine their tools on real-world tasks, technology vendors keep their ecosystems first-class by contributing domain-specific benchmarks, enterprises gain a trusted way to evaluate tools before adoption, and developers get transparent insights into what truly boosts productivity.
 
-This repo covers main artefacts for DPAI Arena: projects, datasets, and the harness.
+This repo covers main artefacts for DPAI Arena: projects, datasets, and the harness (is coming soon).
 
 ## Projects
 
