@@ -17,7 +17,7 @@ The datasets in the Developer Productivity AI Arena are built from real-world pr
 
 ## CLI Harness (coming soon)
 
-Currently, all DPAI Arena benchmarks run on top of a [dedicated TeamCity instance](https://dpaia.teamcity.com/), ensuring robust orchestration, detailed reporting, and reliable reproducibility.
+Currently, all DPAI Arena benchmarks run on top of a [dedicated TeamCity instance](https://dpaia.teamcity.com/project/DpaiaBenchmark?guest=1), ensuring robust orchestration, detailed reporting, and reliable reproducibility.
 
 To further enhance flexibility and openness, we are developing a pipeline-agnostic CLI that will allow anyone to run benchmarks independently of specific CI/CD systems. This open-source tool will enable seamless execution across any environment. *Stay tuned for its release.*
 
